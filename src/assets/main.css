@@ -38,7 +38,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
-  background: url('./images/banner-background.png'), var(--dark-green, #263A29);
+  background: url('./images/banner-bg.png'), var(--dark-green, #263A29);
 }
 
 .header-lg {
