@@ -1,35 +1,21 @@
 <script lang="ts">
 import SelectIngredients from './SelectIngredients.vue';
+import Tag from './Tag.vue';
+import YourList from './YourList.vue';
 
 export default {
     data() {
         return {
-            ingredients: ['Alho', 'Manteiga', 'Orégano']
+            ingredients: ["Garlic", "Butter", "Oregano"]
         }
     },
-    components: { SelectIngredients }
+    components: { SelectIngredients, YourList, Tag }
 }
 </script>
 
 <template>
     <main class="main-content">
-        <section>
-            <span class="subtitle-lg your-list-text">
-                Your list:
-            </span>
-
-            <ul v-if="ingredients.length" class="your-list-ingredients">
-                <li v-for="ingredient in ingredients" :key="ingredient" class="ingredient">
-                    {{ ingredient }}
-                </li>
-            </ul>
-
-            <p v-else class="paragraph empty-list">
-                <img src="../assets/images/icons/empty-list.svg">
-                Your list is empty, select the ingredients to get started.
-            </p>
-        </section>
-
+        <YourList :ingredients="ingredients" />
         <SelectIngredients />
     </main>
 </template>
@@ -45,43 +31,6 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 5rem;
-}
-
-.your-list-text {
-  color: var(--coral, #F0633C);
-  display: block;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.your-list-ingredients {
-  display: flex;
-  justify-content: center;
-  gap: 1rem 1.5rem;
-  flex-wrap: wrap;
-}
-
-.ingredient {
-  display: inline-block;
-  border-radius: 0.5rem;
-  min-width: 4.25rem;
-  padding: 0.5rem;
-  text-align: center;
-  transition: 0.2s;
-  color: var(--cream, #FFFAF3);
-  background: var(--coral, #F0633C);
-  font-weight: 700;
-}
-
-.empty-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-
-  color: var(--coral, #F0633C);
-  text-align: center;
 }
 
 @media only screen and (max-width: 1300px) {
