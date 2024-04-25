@@ -5,6 +5,7 @@ import CategoryCard from './CategoryCard.vue';
 import PrincipalButton from './PrincipalButton.vue';
 
 export default {
+    name: 'SelectIngredients',
     data() {
         return {
             categories: [] as ICategory[]
@@ -14,7 +15,7 @@ export default {
         this.categories = await getCategories();
     },
     components : { CategoryCard, PrincipalButton },
-    emits: ['addIngredient', 'removeIngredient']
+    emits: ['addIngredient', 'removeIngredient', 'searchRecipes']
 }
 </script>
 
@@ -36,7 +37,7 @@ export default {
             *Please note: we assume you have salt, pepper and water at home
         </p>
 
-        <PrincipalButton text="Search recipes!" />
+        <PrincipalButton text="Search recipes!" @click="$emit('searchRecipes')"/>
     </sections>
 </template>
 
